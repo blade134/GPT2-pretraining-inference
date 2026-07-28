@@ -1,16 +1,14 @@
-from transformers import GPT2Tokenizer, GPT2LMHeadModel    #, set_seed
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
 import torch
 
-model_path = './LLM/out-12block-tomatoes-2'   # tomatoes-1
+model_path = './your/output/directory'
 tokenizer = GPT2Tokenizer.from_pretrained(model_path)
 model = GPT2LMHeadModel.from_pretrained(model_path)
 
-intput_text = "Unite States has 51 states,"
+intput_text = "山东警方出警迅速，"
 
 inputs = tokenizer(intput_text, return_tensors='pt')
 print(inputs)
-
-# input_ids_new = inputs.input_ids.to('cuda')
 
 outputs = model.generate(
     inputs.input_ids,
