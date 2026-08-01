@@ -3,11 +3,11 @@ import torch
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-model_path = './LLM/out-12block-tomatoes-2'
+model_path = './your/output/directory'
 tokenizer = GPT2Tokenizer.from_pretrained(model_path)
 model = GPT2LMHeadModel.from_pretrained(model_path).to(device)
 
-input_text = "Unite States has 51 states,"
+input_text = "山东警方出警迅速，"
 
 inputs = tokenizer(input_text, return_tensors='pt').to(device)
 print(inputs)
